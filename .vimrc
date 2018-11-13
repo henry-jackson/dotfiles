@@ -1,10 +1,57 @@
-" Don't try to be vi compatible
-set nocompatible
+" -------------------------------------------------------
+" *****************Vundle Start**************************
+" -------------------------------------------------------
+" scriptencoding utf8
+" set encoding=utf8
+set nocompatible              " Don't try to be vi compatible
+filetype off                  " Helps force plugins to load correctly when it is turned back on below
 
-" Helps force plugins to load correctly when it is turned back on below
-filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" TODO: Load plugins here (pathogen or vundle)
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'scrooloose/nerdtree'  
+
+" Autocomplete for python
+" Add --go-compiler to install.py in ~/.vim/bundle/YouCompleteMe to add go
+" support
+ Plugin 'fatih/vim-go' " Adds golang support, :GoBuild, :GoInstall, :GoTest, syntax highlight etc...
+ Plugin 'nvie/vim-flake8' " Python syntax checker, F7 to run on .py file
+ Plugin 'gabrielelana/vim-markdown' " Markdown syntax for github markdown files (readme.md)
+ Plugin 'w0ng/vim-hybrid' " vim colorscheme
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" -----------------------------------------------------------
+" ***********************Vundle End**************************
+" -----------------------------------------------------------
+
+" Map NerdTree Toggle to Ctrl + n
+map <C-n> :NERDTreeToggle<CR>
+map <C-l> :tabn<CR>
+map <C-h> :tabp<CR>
+" NerdTree ignore *.pyc files
+let NERDTreeIgnore = ['\.pyc$']
+" Format JSON
+map <C-j> :%!python -m json.tool<CR>
+let @j = '%s/u''/"/ge | %s/''/"/ge | %s/None/"None"/ge | %s/False/"False"/ge | %s/True/"True"/ge'
+
+" Flake8 settings
+autocmd BufWritePost *.py call Flake8() " run flake8 every write
 
 " Turn on syntax highlighting
 syntax on
@@ -13,7 +60,7 @@ syntax on
 filetype plugin indent on
 
 " TODO: Pick a leader key
-" let mapleader = ","
+let mapleader = "\<Space>"
 
 " Security
 set modelines=0
