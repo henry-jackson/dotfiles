@@ -1,2 +1,5 @@
 .viminfo
 *.swp
+.netrwhist
+/bundle
+/plugin
