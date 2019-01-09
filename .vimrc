@@ -25,7 +25,21 @@ Plugin 'scrooloose/nerdtree'
  Plugin 'fatih/vim-go' " Adds golang support, :GoBuild, :GoInstall, :GoTest, syntax highlight etc...
  Plugin 'nvie/vim-flake8' " Python syntax checker, F7 to run on .py file
  Plugin 'gabrielelana/vim-markdown' " Markdown syntax for github markdown files (readme.md)
- Plugin 'w0ng/vim-hybrid' " vim colorscheme
+
+ " Vim abolish for coercing between snake and camel case
+ Plugin 'tpope/vim-abolish'
+
+ " Vim repeat for tpope's plugins
+ Plugin 'tpope/vim-repeat'
+
+ " Adds auto-complete
+ Plugin 'Valloric/YouCompleteMe'
+
+ " Improves auto-indent
+Plugin 'vim-scripts/indentpython.vim'
+
+" Syntax checking
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,19 +56,37 @@ filetype plugin indent on    " required
 
 " Map NerdTree Toggle to Ctrl + n
 map <C-n> :NERDTreeToggle<CR>
-map <C-l> :tabn<CR>
-map <C-h> :tabp<CR>
-" NerdTree ignore *.pyc files
-let NERDTreeIgnore = ['\.pyc$']
-" Format JSON
-map <C-j> :%!python -m json.tool<CR>
-let @j = '%s/u''/"/ge | %s/''/"/ge | %s/None/"None"/ge | %s/False/"False"/ge | %s/True/"True"/ge'
+let NERDTreeShowHideen=1
 
-" Flake8 settings
-autocmd BufWritePost *.py call Flake8() " run flake8 every write
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
+
+" Flake8 settings *** disabled for now ***
+" autocmd BufWritePost *.py call Flake8() " run flake8 every write
+
+" Ale configs ==========================================
+let g:ale_fixers = {
+	\ 'javascript': ['eslint', 'trim_whitespace', 'remove_trailing_lines'],
+	\ 'python': ['autopep8', 'trim_whitespace', 'remove_trailing_lines'],
+	\ 'elixir': ['mix_format', 'trim_whitespace', 'remove_trailing_lines']
+\}
+
+let g:ale_linters = {
+	\ 'java': ['checkstyle']
+\}
+
+
+let g:OmniSharp_highlight_types = 1
+let g:ale_fix_on_save = 1
+
 
 " Turn on syntax highlighting
 syntax on
+colorscheme spring-night
 
 " For plugins to load correctly
 filetype plugin indent on
@@ -118,7 +150,6 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
-map <leader><space> :let @/=''<cr> " clear search
 
 " Remap help key.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
@@ -138,10 +169,14 @@ set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+"set t_Co=256
+"set background=dark
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 " colorscheme solarized
+
+" set up tab completion menus
+set wildmode=longest,list,full
+set wildmenu
