@@ -63,6 +63,14 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with spacebar
+nnoremap <space> za
+
+" Enable json formatting with ctrl+j
+ map <C-f> :%!python -m json.tool<CR>
+
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
 
 " Flake8 settings *** disabled for now ***
@@ -91,9 +99,6 @@ colorscheme spring-night
 " For plugins to load correctly
 filetype plugin indent on
 
-" TODO: Pick a leader key
-let mapleader = "\<Space>"
-
 " Security
 set modelines=0
 
@@ -113,9 +118,9 @@ set encoding=utf-8
 set wrap
 set textwidth=79
 set formatoptions=tcqrn1
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=0 noexpandtab
 set expandtab
 set noshiftround
 
@@ -180,3 +185,12 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 " set up tab completion menus
 set wildmode=longest,list,full
 set wildmenu
+
+" set hybrid line numbers
+set number relativenumber
+
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
