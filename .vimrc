@@ -24,7 +24,7 @@ Plugin 'scrooloose/nerdtree'
 " support
  Plugin 'fatih/vim-go' " Adds golang support, :GoBuild, :GoInstall, :GoTest, syntax highlight etc...
  Plugin 'nvie/vim-flake8' " Python syntax checker, F7 to run on .py file
- Plugin 'gabrielelana/vim-markdown' " Markdown syntax for github markdown files (readme.md)
+"  Plugin 'gabrielelana/vim-markdown' " Markdown syntax for github markdown files (readme.md)
 
  " Vim abolish for coercing between snake and camel case
  Plugin 'tpope/vim-abolish'
@@ -40,6 +40,9 @@ Plugin 'vim-scripts/indentpython.vim'
 
 " Syntax checking
 Plugin 'w0rp/ale'
+
+" Tables
+Plugin 'dhruvasagar/vim-table-mode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
