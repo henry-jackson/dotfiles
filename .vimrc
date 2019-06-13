@@ -44,6 +44,9 @@ Plugin 'w0rp/ale'
 " Tables
 Plugin 'dhruvasagar/vim-table-mode'
 
+" Rust syntax highlighting, formatting
+Plugin 'rust-lang/rust.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -93,6 +96,11 @@ let g:ale_linters = {
 
 let g:OmniSharp_highlight_types = 1
 let g:ale_fix_on_save = 1
+
+" YCM Config
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 
 " Turn on syntax highlighting
