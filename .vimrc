@@ -50,6 +50,9 @@ Plugin 'rust-lang/rust.vim'
 " Syntastic, plugin used by rust.vim for syntax checking
 Plugin 'vim-syntastic/syntastic'
 
+" Rust web playpen integration
+Plugin "mattn/webapi-vim"
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -169,6 +172,9 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
+
+" Run rustfmt on save
+let g:rustfmt_autosave = 1
 
 " Recommended syntastic settings
 set statusline+=%#warningmsg#
