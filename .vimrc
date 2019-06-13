@@ -176,6 +176,9 @@ set showmatch
 " Run rustfmt on save
 let g:rustfmt_autosave = 1
 
+" Copy RustPlay output URL to clipboard
+let g:rust_clip_command = 'xclip -selection clipboard'
+
 " Recommended syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
