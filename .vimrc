@@ -51,7 +51,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'vim-syntastic/syntastic'
 
 " Rust web playpen integration
-Plugin "mattn/webapi-vim"
+Plugin 'mattn/webapi-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
