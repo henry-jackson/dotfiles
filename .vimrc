@@ -81,7 +81,7 @@ set foldlevel=99
 nnoremap <space> za
 
 " Change UTF encoded json into valid json for the python tool mapped below
-let @f = ':%s/u''/"/g:%s/''/"/g:%s/False/"False"/g:%s/True/"True"/g:%s/None/"None"/g:noh'
+let @f = ':%s/u''/"/ge:%s/''/"/ge:%s/False/"False"/ge:%s/True/"True"/ge:%s/None/"None"/ge:noh'
 
 " Enable json formatting with ctrl+f
  map <C-f> :%!python -m json.tool<CR>
