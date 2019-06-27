@@ -80,7 +80,10 @@ set foldlevel=99
 " Enable folding with spacebar
 nnoremap <space> za
 
-" Enable json formatting with ctrl+j
+" Change UTF encoded json into valid json for the python tool mapped below
+let @f = ':%s/u''/"/g:%s/''/"/g:%s/False/"False"/g:%s/True/"True"/g:%s/None/"None"/g:noh'
+
+" Enable json formatting with ctrl+f
  map <C-f> :%!python -m json.tool<CR>
 
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
@@ -188,6 +191,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = []
 
 
 " Remap help key.
