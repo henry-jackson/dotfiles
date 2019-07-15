@@ -110,6 +110,8 @@ let g:ale_fix_on_save = 1
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
+" rust source path for auto completion
+let g:ycm_rust_src_path = '/home/henryjackson/.rustup/toolchains/stable-x86_64-unknown-linux-gnu'
 
 
 " Turn on syntax highlighting
