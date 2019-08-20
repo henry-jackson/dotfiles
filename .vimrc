@@ -15,6 +15,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+ " Adds auto-complete
+ " Plugin 'Valloric/YouCompleteMe'
+
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'scrooloose/nerdtree'  
@@ -32,8 +35,8 @@ Plugin 'scrooloose/nerdtree'
  " Vim repeat for tpope's plugins
  Plugin 'tpope/vim-repeat'
 
- " Adds auto-complete
- Plugin 'Valloric/YouCompleteMe'
+" TabNine code autocompleter
+Plugin 'zxqfl/tabnine-vim'
 
  " Improves auto-indent
 Plugin 'vim-scripts/indentpython.vim'
@@ -47,11 +50,18 @@ Plugin 'dhruvasagar/vim-table-mode'
 " Rust syntax highlighting, formatting
 Plugin 'rust-lang/rust.vim'
 
-" Syntastic, plugin used by rust.vim for syntax checking
-Plugin 'vim-syntastic/syntastic'
+" " Syntastic, plugin used by rust.vim for syntax checking
+" Plugin 'vim-syntastic/syntastic'
 
 " Rust web playpen integration
 Plugin 'mattn/webapi-vim'
+
+" Rust go to definition
+Plugin 'racer-rust/vim-racer'
+
+" block break game
+" Play with :VimGameCodeBreak
+" Plugin 'johngrib/vim-game-code-break'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -184,16 +194,23 @@ let g:rustfmt_autosave = 1
 " Copy RustPlay output URL to clipboard
 let g:rust_clip_command = 'xclip -selection clipboard'
 
-" Recommended syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" Rust racer settings
+set hidden
+let g:racer_cmd = "~/.cargo/bin/racer"
+au FileType rust nmap gd <Plug>(rust-def)
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = []
+"  Recommended syntastic settings
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 1
+" let g:syntastic_python_checkers = []
+" let g:syntastic_disabled_filetypes=[]
+" let g:syntastic_rust_checkers = ['rustc']
 
 
 " Remap help key.
