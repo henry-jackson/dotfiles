@@ -11,12 +11,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
- " Adds auto-complete
- " Plugin 'Valloric/YouCompleteMe'
 
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -27,7 +24,6 @@ Plugin 'scrooloose/nerdtree'
 " support
  Plugin 'fatih/vim-go' " Adds golang support, :GoBuild, :GoInstall, :GoTest, syntax highlight etc...
  Plugin 'nvie/vim-flake8' " Python syntax checker, F7 to run on .py file
-"  Plugin 'gabrielelana/vim-markdown' " Markdown syntax for github markdown files (readme.md)
 
  " Vim abolish for coercing between snake and camel case
  Plugin 'tpope/vim-abolish'
@@ -58,10 +54,6 @@ Plugin 'mattn/webapi-vim'
 
 " Rust go to definition
 Plugin 'racer-rust/vim-racer'
-
-" block break game
-" Play with :VimGameCodeBreak
-" Plugin 'johngrib/vim-game-code-break'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -98,9 +90,6 @@ let @f = ':%s/u''/"/ge:%s/''/"/ge:%s/False/"False"/ge:%s/True/"True"/ge:%s/N
 
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
 
-" Flake8 settings *** disabled for now ***
-" autocmd BufWritePost *.py call Flake8() " run flake8 every write
-
 " Ale configs ==========================================
 let g:ale_fixers = {
 	\ 'javascript': ['eslint', 'trim_whitespace', 'remove_trailing_lines'],
@@ -122,7 +111,6 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 " rust source path for auto completion
 let g:ycm_rust_src_path = '/home/henryjackson/.rustup/toolchains/stable-x86_64-unknown-linux-gnu'
-
 
 " Turn on syntax highlighting
 syntax on
@@ -188,6 +176,9 @@ set ignorecase
 set smartcase
 set showmatch
 
+" Add go imports when saving go files
+let g:go_fmt_command = "goimports"
+
 " Run rustfmt on save
 let g:rustfmt_autosave = 1
 
@@ -199,26 +190,10 @@ set hidden
 let g:racer_cmd = "~/.cargo/bin/racer"
 au FileType rust nmap gd <Plug>(rust-def)
 
-"  Recommended syntastic settings
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 1
-" let g:syntastic_python_checkers = []
-" let g:syntastic_disabled_filetypes=[]
-" let g:syntastic_rust_checkers = ['rustc']
-
-
 " Remap help key.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
-
-" Textmate holdouts
 
 " Formatting
 map <leader>q gqip
@@ -229,15 +204,6 @@ set listchars=tab:▸\ ,eol:¬
 " set list " To enable by default
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
-
-" Color scheme (terminal)
-"set t_Co=256
-"set background=dark
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
-" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-" in ~/.vim/colors/ and uncomment:
-" colorscheme solarized
 
 " set up tab completion menus
 set wildmode=longest,list,full
