@@ -1,0 +1,9 @@
+[user]
+	email = 34102861+henry-jackson@users.noreply.github.com
+	name = Henry Jackson
+[credential]
+	helper = cache --timeout=360000000000000
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[core]
+	editor = vim

@@ -70,7 +70,7 @@ filetype plugin indent on    " required
 
 " Map NerdTree Toggle to Ctrl + n
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHideen=1
+let NERDTreeShowHidden=1
 
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
