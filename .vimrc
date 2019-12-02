@@ -46,14 +46,14 @@ Plugin 'dhruvasagar/vim-table-mode'
 " Rust syntax highlighting, formatting
 Plugin 'rust-lang/rust.vim'
 
-" " Syntastic, plugin used by rust.vim for syntax checking
-" Plugin 'vim-syntastic/syntastic'
-
 " Rust web playpen integration
 Plugin 'mattn/webapi-vim'
 
 " Rust go to definition
 Plugin 'racer-rust/vim-racer'
+
+" Toml syntax support
+Plugin 'cespare/vim-toml'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

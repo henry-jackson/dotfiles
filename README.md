@@ -1,11 +1,8 @@
-# vim-settings
-> My .vimrc and other vim config things
+# dotfiles
+> Config files for different command line tools
 
-### Borrow My Settings
-> Additional packages may need to be installed for the YouCompleteMe plugin
+
+### Clone and Configure Command
 ```
-cd && git clone git@github.com:henry-jackson/vim-settings.git
-mv vim-settings/ .vim/
-cp .vim/.vimrc ./
-vim +PluginInstall
+git clone git@github.com:henry-jackson/dotfiles.git && cd $_ && ./config.sh
 ```
