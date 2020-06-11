@@ -3,3 +3,5 @@
 cp -vrp {.vim/, .vimrc, .tmux.conf} ~/
 # Install all vim vundle plugins
 vim +PluginInstall
+# Change default login shell to zshell
+chsh --shell zsh

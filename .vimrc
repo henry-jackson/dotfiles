@@ -28,8 +28,14 @@ Plugin 'scrooloose/nerdtree'
  " Vim abolish for coercing between snake and camel case
  Plugin 'tpope/vim-abolish'
 
+ " Git wrapper inside vim
+ Plugin 'tpope/vim-fugitive'
+
  " Vim repeat for tpope's plugins
  Plugin 'tpope/vim-repeat'
+
+ " Comment stuff out
+ Plugin 'tpope/vim-commentary'
 
 " TabNine code autocompleter
 Plugin 'zxqfl/tabnine-vim'
@@ -54,6 +60,13 @@ Plugin 'racer-rust/vim-racer'
 
 " Toml syntax support
 Plugin 'cespare/vim-toml'
+
+" Terraform HCL and JSON syntax highlighting for *.tf, *.tfvars, *.tfstate
+" files
+Plugin 'hashivim/vim-terraform'
+
+" Typescript syntax
+Plugin 'leafgarland/typescript-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -190,6 +203,10 @@ set hidden
 let g:racer_cmd = "~/.cargo/bin/racer"
 au FileType rust nmap gd <Plug>(rust-def)
 
+" vim-terraform tab alignment settings
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
+
 " Remap help key.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
@@ -217,3 +234,9 @@ augroup numbertoggle
     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
+
+" Don't unfold go code on write
+let g:go_fmt_experimental = 1
+
+" format plush files (Buffalo)
+autocmd BufRead,BufNewFile *.plush.html set filetype=eruby.html.js.css
