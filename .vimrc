@@ -22,20 +22,20 @@ Plugin 'scrooloose/nerdtree'
 " Autocomplete for python
 " Add --go-compiler to install.py in ~/.vim/bundle/YouCompleteMe to add go
 " support
- Plugin 'fatih/vim-go' " Adds golang support, :GoBuild, :GoInstall, :GoTest, syntax highlight etc...
- Plugin 'nvie/vim-flake8' " Python syntax checker, F7 to run on .py file
+Plugin 'fatih/vim-go' " Adds golang support, :GoBuild, :GoInstall, :GoTest, syntax highlight etc...
+Plugin 'nvie/vim-flake8' " Python syntax checker, F7 to run on .py file
 
- " Vim abolish for coercing between snake and camel case
- Plugin 'tpope/vim-abolish'
+" Vim abolish for coercing between snake and camel case
+Plugin 'tpope/vim-abolish'
 
- " Git wrapper inside vim
- Plugin 'tpope/vim-fugitive'
+" Git wrapper inside vim
+Plugin 'tpope/vim-fugitive'
 
- " Vim repeat for tpope's plugins
- Plugin 'tpope/vim-repeat'
+" Vim repeat for tpope's plugins
+Plugin 'tpope/vim-repeat'
 
- " Comment stuff out
- Plugin 'tpope/vim-commentary'
+" Comment stuff out
+Plugin 'tpope/vim-commentary'
 
 " TabNine code autocompleter
 Plugin 'zxqfl/tabnine-vim'
@@ -99,7 +99,7 @@ nnoremap <space> za
 let @f = ':%s/u''/"/ge:%s/''/"/ge:%s/False/"False"/ge:%s/True/"True"/ge:%s/None/"None"/ge:noh'
 
 " Enable json formatting with ctrl+f
- map <C-f> :%!python -m json.tool<CR>
+map <C-f> :%!python -m json.tool<CR>
 
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
 
@@ -189,6 +189,9 @@ set ignorecase
 set smartcase
 set showmatch
 
+" Run go fmt on save
+let g:go_fmt_autosave = 1
+
 " Add go imports when saving go files
 let g:go_fmt_command = "goimports"
 
@@ -226,6 +229,13 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 set wildmode=longest,list,full
 set wildmenu
 
+" remember folding on save
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
 " set hybrid line numbers
 set number relativenumber
 
@@ -240,3 +250,12 @@ let g:go_fmt_experimental = 1
 
 " format plush files (Buffalo)
 autocmd BufRead,BufNewFile *.plush.html set filetype=eruby.html.js.css
+
+if has('persistent_undo')          
+  set undofile                     
+  silent !mkdir -p $HOME/.vim/undo 
+  set undodir=$HOME/.vim/undo      
+  endif
+
+" vim table-mode use markdown style tables
+let g:table_mode_corner='|'
