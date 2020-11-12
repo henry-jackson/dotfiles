@@ -34,9 +34,6 @@ Plugin 'tpope/vim-fugitive'
 " Vim repeat for tpope's plugins
 Plugin 'tpope/vim-repeat'
 
-" Comment stuff out
-Plugin 'tpope/vim-commentary'
-
 " TabNine code autocompleter
 Plugin 'zxqfl/tabnine-vim'
 
@@ -46,7 +43,7 @@ Plugin 'vim-scripts/indentpython.vim'
 " Syntax checking
 Plugin 'w0rp/ale'
 
-" Tables
+" Markdown tables
 Plugin 'dhruvasagar/vim-table-mode'
 
 " Rust syntax highlighting, formatting
@@ -67,6 +64,13 @@ Plugin 'hashivim/vim-terraform'
 
 " Typescript syntax
 Plugin 'leafgarland/typescript-vim'
+
+" Elixir syntax
+Plugin 'elixir-editors/vim-elixir'
+
+" RoR syntax and tooling
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
