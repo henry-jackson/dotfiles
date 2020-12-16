@@ -133,9 +133,6 @@ let g:ycm_rust_src_path = '/home/henryjackson/.rustup/toolchains/stable-x86_64-u
 syntax on
 colorscheme spring-night
 
-" For plugins to load correctly
-filetype plugin indent on
-
 " Security
 set modelines=0
 
