@@ -103,7 +103,7 @@ set foldlevel=99
 " Enable folding with spacebar
 nnoremap <space> za
 
-" Enable json formatting with ctrl+f
+" Enable FZF search with CTRL+f
 map <C-f> :FZF<Enter>
 
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
