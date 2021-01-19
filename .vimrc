@@ -19,6 +19,10 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'scrooloose/nerdtree'  
 
+" Fuzzy finder
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+
 " Autocomplete for python
 " Add --go-compiler to install.py in ~/.vim/bundle/YouCompleteMe to add go
 " support
@@ -35,7 +39,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 
 " TabNine code autocompleter
-Plugin 'zxqfl/tabnine-vim'
+" Plugin 'zxqfl/tabnine-vim'
 
  " Improves auto-indent
 Plugin 'vim-scripts/indentpython.vim'
@@ -99,11 +103,8 @@ set foldlevel=99
 " Enable folding with spacebar
 nnoremap <space> za
 
-" Change UTF encoded json into valid json for the python tool mapped below
-let @f = ':%s/u''/"/ge:%s/''/"/ge:%s/False/"False"/ge:%s/True/"True"/ge:%s/None/"None"/ge:noh'
-
 " Enable json formatting with ctrl+f
-map <C-f> :%!python -m json.tool<CR>
+map <C-f> :FZF<Enter>
 
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
 
@@ -111,11 +112,13 @@ let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
 let g:ale_fixers = {
 	\ 'javascript': ['eslint', 'trim_whitespace', 'remove_trailing_lines'],
 	\ 'python': ['autopep8', 'trim_whitespace', 'remove_trailing_lines'],
-	\ 'elixir': ['mix_format', 'trim_whitespace', 'remove_trailing_lines']
+	\ 'elixir': ['mix_format', 'trim_whitespace', 'remove_trailing_lines'],
+    \ 'ruby' : ['rubocop'],
 \}
 
 let g:ale_linters = {
-	\ 'java': ['checkstyle']
+	\ 'java': ['checkstyle'],
+    \ 'ruby' : ['rubocop'],
 \}
 
 
