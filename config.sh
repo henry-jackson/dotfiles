@@ -5,3 +5,5 @@ cp -vrp {.vim/, .vimrc, .tmux.conf} ~/
 vim +PluginInstall
 # Change default login shell to zshell
 chsh --shell zsh
+# Install Terminal font
+./font_install.sh
