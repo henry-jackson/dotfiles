@@ -16,7 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'scrooloose/nerdtree'  
+Plugin 'scrooloose/nerdtree'
 
 " Fuzzy finder
 Plugin 'junegunn/fzf'
@@ -38,22 +38,19 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 
 " TabNine code autocompleter
-" Plugin 'zxqfl/tabnine-vim'
+Plugin 'zxqfl/tabnine-vim'
 
  " Improves auto-indent
 Plugin 'vim-scripts/indentpython.vim'
 
 " Syntax checking
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 
 " Markdown tables
 Plugin 'dhruvasagar/vim-table-mode'
 
 " Rust syntax highlighting, formatting
 Plugin 'rust-lang/rust.vim'
-
-" Rust web playpen integration
-Plugin 'mattn/webapi-vim'
 
 " Rust go to definition
 Plugin 'racer-rust/vim-racer'
@@ -67,6 +64,9 @@ Plugin 'hashivim/vim-terraform'
 
 " Typescript syntax
 Plugin 'leafgarland/typescript-vim'
+
+" JSX-in-typescript syntax
+Plugin 'peitalin/vim-jsx-typescript'
 
 " Elixir syntax
 Plugin 'elixir-editors/vim-elixir'
@@ -135,20 +135,26 @@ map <C-f> :FZF<Enter>
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
 
 " Ale configs ==========================================
-let g:ale_fixers = {
-	\ 'javascript': ['eslint', 'trim_whitespace', 'remove_trailing_lines'],
-	\ 'python': ['autopep8', 'trim_whitespace', 'remove_trailing_lines'],
-	\ 'elixir': ['mix_format', 'trim_whitespace', 'remove_trailing_lines'],
-    \ 'ruby' : ['rubocop'],
-\}
+let g:ale_linter_aliases = {'typescriptreact': ['typescript']}
 
 let g:ale_linters = {
 	\ 'java': ['checkstyle'],
-    \ 'ruby' : ['rubocop'],
+    \ 'typescript': ['prettier', 'tsserver', 'eslint']
 \}
 
+let g:ale_fixers = {
+    \ '*': ['trim_whitespace', 'remove_trailing_lines'],
+    \ 'css': ['prettier'],
+	\ 'elixir': ['mix_format'],
+    \ 'html': ['prettier'],
+	\ 'javascript': ['prettier', 'eslint'],
+    \ 'json': ['prettier'],
+    \ 'markdown': ['prettier'],
+	\ 'python': ['autopep8'],
+    \ 'ruby': ['rubocop'],
+    \ 'typescriptreact': ['prettier', 'eslint']
+\}
 
-let g:OmniSharp_highlight_types = 1
 let g:ale_fix_on_save = 1
 
 " YCM Config
@@ -173,9 +179,6 @@ set ruler
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
-
-" Encoding
-set encoding=utf-8
 
 " Whitespace
 set wrap
@@ -240,11 +243,6 @@ au FileType rust nmap gd <Plug>(rust-def)
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 
-" Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
-
 " Formatting
 map <leader>q gqip
 
@@ -281,10 +279,10 @@ let g:go_fmt_experimental = 1
 " format plush files (Buffalo)
 autocmd BufRead,BufNewFile *.plush.html set filetype=eruby.html.js.css
 
-if has('persistent_undo')          
-  set undofile                     
-  silent !mkdir -p $HOME/.vim/undo 
-  set undodir=$HOME/.vim/undo      
+if has('persistent_undo')
+  set undofile
+  silent !mkdir -p $HOME/.vim/undo
+  set undodir=$HOME/.vim/undo
   endif
 
 " vim table-mode use markdown style tables
