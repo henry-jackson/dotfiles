@@ -34,11 +34,14 @@ Plugin 'tpope/vim-abolish'
 " Git wrapper inside vim
 Plugin 'tpope/vim-fugitive'
 
+" Enables :GBrowse redirect to Github in fugitive
+Plugin 'tpope/vim-rhubarb'
+
 " Vim repeat for tpope's plugins
 Plugin 'tpope/vim-repeat'
 
 " TabNine code autocompleter
-Plugin 'zxqfl/tabnine-vim'
+" Plugin 'codota/tabnine-vim'
 
  " Improves auto-indent
 Plugin 'vim-scripts/indentpython.vim'
@@ -189,6 +192,10 @@ set shiftwidth=4
 set softtabstop=0 noexpandtab
 set expandtab
 set noshiftround
+
+" ruby specific whitespace
+autocmd FileType ruby setlocal ts=2
+autocmd FileType ruby setlocal sw=2
 
 " Cursor motion
 set scrolloff=3
