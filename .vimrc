@@ -14,6 +14,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Ack search tool for vim
+Plugin 'mileszs/ack.vim'
+
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'scrooloose/nerdtree'
@@ -127,6 +130,9 @@ autocmd VimEnter * call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686
 autocmd VimEnter * call NERDTreeHighlightFile('zshrc', 'Gray', 'none', '#686868', '#151515')
 autocmd VimEnter * call NERDTreeHighlightFile('vimrc', 'Gray', 'none', '#686868', '#151515')
 
+" Use https://github.com/ggreer/the_silver_searcher as Ack program
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 set foldmethod=indent
 set foldlevel=99
 " Enable folding with spacebar
@@ -134,7 +140,7 @@ nnoremap <space> za
 
 " Enable FZF search with file preview using CTRL+f, ignoring files that are in
 " .gitignore, but including untracked files in the repo
-map <C-f> :GFiles --exclude-standard --others --cached
+map <C-f> :GFiles --exclude-standard --others --cached<Enter>
 
 " Open FZF Buffers with CTRL+l
 map <C-b> :Buffers<Enter>
