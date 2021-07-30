@@ -132,8 +132,12 @@ set foldlevel=99
 " Enable folding with spacebar
 nnoremap <space> za
 
-" Enable FZF search with CTRL+f
-map <C-f> :FZF<Enter>
+" Enable FZF search with file preview using CTRL+f, ignoring files that are in
+" .gitignore, but including untracked files in the repo
+map <C-f> :GFiles --exclude-standard --others --cached
+
+" Open FZF Buffers with CTRL+l
+map <C-b> :Buffers<Enter>
 
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
 
