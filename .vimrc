@@ -133,7 +133,7 @@ autocmd VimEnter * call NERDTreeHighlightFile('vimrc', 'Gray', 'none', '#686868'
 " Use https://github.com/ggreer/the_silver_searcher as Ack program
 let g:ackprg = 'ag --nogroup --nocolor --column'
 " Shortcut to open silver searcher menu
-map <C-f> :Ag<Enter>
+map <C-s> :Ag<Enter>
 
 set foldmethod=indent
 set foldlevel=99
