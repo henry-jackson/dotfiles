@@ -147,6 +147,12 @@ map <C-f> :GFiles --exclude-standard --others --cached<Enter>
 " Open FZF Buffers with CTRL+l
 map <C-b> :Buffers<Enter>
 
+" go to def shortcut
+map gd :ALEGoToDefinition<Enter>
+
+" gb shortcut to check git blame
+map gb :Git blame<Enter>
+
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
 
 " Ale configs ==========================================
@@ -258,22 +264,12 @@ set hidden
 let g:racer_cmd = "~/.cargo/bin/racer"
 au FileType rust nmap gd <Plug>(rust-def)
 
-" go to def shortcut for ruby
-au FileType ruby nmap gd :ALEGoToDefinition<Enter>
-
 " vim-terraform tab alignment settings
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 
-" Formatting
-map <leader>q gqip
-
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " set up tab completion menus
 set wildmode=longest,list,full
