@@ -258,6 +258,9 @@ set hidden
 let g:racer_cmd = "~/.cargo/bin/racer"
 au FileType rust nmap gd <Plug>(rust-def)
 
+" go to def shortcut for ruby
+au FileType ruby nmap gd :ALEGoToDefinition<Enter>
+
 " vim-terraform tab alignment settings
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
