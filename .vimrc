@@ -14,6 +14,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Ack search tool for vim
+Plugin 'mileszs/ack.vim'
+
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'scrooloose/nerdtree'
@@ -127,13 +130,28 @@ autocmd VimEnter * call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686
 autocmd VimEnter * call NERDTreeHighlightFile('zshrc', 'Gray', 'none', '#686868', '#151515')
 autocmd VimEnter * call NERDTreeHighlightFile('vimrc', 'Gray', 'none', '#686868', '#151515')
 
+" Use https://github.com/ggreer/the_silver_searcher as Ack program
+let g:ackprg = 'ag --nogroup --nocolor --column'
+" Shortcut to open silver searcher menu
+map <C-s> :Ag<Enter>
+
 set foldmethod=indent
 set foldlevel=99
 " Enable folding with spacebar
 nnoremap <space> za
 
-" Enable FZF search with CTRL+f
-map <C-f> :FZF<Enter>
+" Enable FZF search with file preview using CTRL+f, ignoring files that are in
+" .gitignore, but including untracked files in the repo
+map <C-f> :GFiles --exclude-standard --others --cached<Enter>
+
+" Open FZF Buffers with CTRL+l
+map <C-b> :Buffers<Enter>
+
+" go to def shortcut
+map gd :ALEGoToDefinition<Enter>
+
+" gb shortcut to check git blame
+map gb :Git blame<Enter>
 
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$'] "ignore files in NERDTree
 
@@ -250,15 +268,8 @@ au FileType rust nmap gd <Plug>(rust-def)
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 
-" Formatting
-map <leader>q gqip
-
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " set up tab completion menus
 set wildmode=longest,list,full
