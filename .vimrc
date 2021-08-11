@@ -215,6 +215,9 @@ set noshiftround
 autocmd FileType ruby setlocal ts=2
 autocmd FileType ruby setlocal sw=2
 
+" typescript, javascript specific whitespace
+autocmd BufRead,BufNewFile *.ts,*.tsx*,*.js,*.jsx setlocal ts=2 sw=2
+
 " Cursor motion
 set scrolloff=3
 set backspace=indent,eol,start
