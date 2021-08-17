@@ -80,6 +80,7 @@ Plugin 'elixir-editors/vim-elixir'
 " RoR syntax and tooling
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
+Plugin 'slim-template/vim-slim'
 
 " Icons for filetype indicators in nerdtree
 Plugin 'ryanoasis/vim-devicons'
@@ -215,9 +216,6 @@ set noshiftround
 autocmd FileType ruby setlocal ts=2
 autocmd FileType ruby setlocal sw=2
 
-" typescript, javascript specific whitespace
-autocmd BufRead,BufNewFile *.ts,*.tsx*,*.js,*.jsx setlocal ts=2 sw=2
-
 " Cursor motion
 set scrolloff=3
 set backspace=indent,eol,start
@@ -299,6 +297,9 @@ let g:go_fmt_experimental = 1
 
 " format plush files (Buffalo)
 autocmd BufRead,BufNewFile *.plush.html set filetype=eruby.html.js.css
+
+" format slim files (Ruby on rails)
+autocmd BufRead,BufNewFile *.slim set filetype=slim
 
 if has('persistent_undo')
   set undofile
