@@ -98,6 +98,9 @@ filetype plugin indent on    " required
 " ***********************Vundle End**************************
 " -----------------------------------------------------------
 
+" Set space as leader key
+let mapleader=" "
+
 " Map NerdTree Toggle to Ctrl + n
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
@@ -138,8 +141,8 @@ map <C-s> :Ag<Enter>
 
 set foldmethod=indent
 set foldlevel=99
-" Enable folding with spacebar
-nnoremap <space> za
+" Enable folding with space f
+nmap <silent> <leader>f za
 
 " Enable FZF search with file preview using CTRL+f, ignoring files that are in
 " .gitignore, but including untracked files in the repo
@@ -150,6 +153,10 @@ map <C-b> :Buffers<Enter>
 
 " go to def shortcut
 map gd :ALEGoToDefinition<Enter>
+
+" jump between ALE errors
+nmap <silent> <leader>j :ALENext<cr>zz
+nmap <silent> <leader>k :ALEPrevious<cr>zz
 
 " gb shortcut to check git blame
 map gb :Git blame<Enter>
@@ -215,6 +222,9 @@ set noshiftround
 " ruby specific whitespace
 autocmd FileType ruby setlocal ts=2
 autocmd FileType ruby setlocal sw=2
+
+" typescript, javascript specific whitespace
+autocmd BufRead,BufNewFile *.ts,*.tsx*,*.js,*.jsx,*.jbuilder setlocal ts=2 sw=2
 
 " Cursor motion
 set scrolloff=3
