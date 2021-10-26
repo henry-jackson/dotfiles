@@ -80,6 +80,7 @@ Plugin 'elixir-editors/vim-elixir'
 " RoR syntax and tooling
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
+Plugin 'slim-template/vim-slim'
 
 " Icons for filetype indicators in nerdtree
 Plugin 'ryanoasis/vim-devicons'
@@ -96,6 +97,9 @@ filetype plugin indent on    " required
 " -----------------------------------------------------------
 " ***********************Vundle End**************************
 " -----------------------------------------------------------
+
+" Set space as leader key
+let mapleader=" "
 
 " Map NerdTree Toggle to Ctrl + n
 map <C-n> :NERDTreeToggle<CR>
@@ -137,8 +141,8 @@ map <C-s> :Ag<Enter>
 
 set foldmethod=indent
 set foldlevel=99
-" Enable folding with spacebar
-nnoremap <space> za
+" Enable folding with space f
+nmap <silent> <leader>f za
 
 " Enable FZF search with file preview using CTRL+f, ignoring files that are in
 " .gitignore, but including untracked files in the repo
@@ -149,6 +153,10 @@ map <C-b> :Buffers<Enter>
 
 " go to def shortcut
 map gd :ALEGoToDefinition<Enter>
+
+" jump between ALE errors
+nmap <silent> <leader>j :ALENext<cr>zz
+nmap <silent> <leader>k :ALEPrevious<cr>zz
 
 " gb shortcut to check git blame
 map gb :Git blame<Enter>
@@ -216,7 +224,7 @@ autocmd FileType ruby setlocal ts=2
 autocmd FileType ruby setlocal sw=2
 
 " typescript, javascript specific whitespace
-autocmd BufRead,BufNewFile *.ts,*.tsx*,*.js,*.jsx setlocal ts=2 sw=2
+autocmd BufRead,BufNewFile *.ts,*.tsx*,*.js,*.jsx,*.jbuilder setlocal ts=2 sw=2
 
 " Cursor motion
 set scrolloff=3
@@ -299,6 +307,9 @@ let g:go_fmt_experimental = 1
 
 " format plush files (Buffalo)
 autocmd BufRead,BufNewFile *.plush.html set filetype=eruby.html.js.css
+
+" format slim files (Ruby on rails)
+autocmd BufRead,BufNewFile *.slim set filetype=slim
 
 if has('persistent_undo')
   set undofile
