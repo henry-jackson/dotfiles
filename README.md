@@ -1,8 +1,21 @@
 # dotfiles
-> Config files for different command line tools
 
+> OSX setup files
 
-### Clone and Configure Command
+Install apple command line tools
+
+```zsh
+xcode-select --install
 ```
-git clone git@github.com:henry-jackson/dotfiles.git && cd $_ && ./config.sh
+
+2. Clone repo into new hidden directory
+
+```zsh
+git clone git@github.com:henry-jackson/dotfiles.git ~/.dotfiles
+```
+
+3. Run configuration script
+
+```zsh
+./config.sh
 ```
