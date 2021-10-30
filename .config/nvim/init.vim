@@ -1,95 +1,44 @@
-" -------------------------------------------------------
-" *****************Vundle Start**************************
-" -------------------------------------------------------
 set encoding=UTF-8
 set nocompatible " Don't try to be vi compatible
 
 call plug#begin('~/.vim/plugged')
 
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
-Plug 'VundleVim/Vundle.vim'
+" syntax, lsp, linting
+Plug 'cespare/vim-toml'              " Toml syntax support
+Plug 'dense-analysis/ale'            " Syntax checking
+Plug 'elixir-editors/vim-elixir'     " Elixir syntax
+Plug 'fatih/vim-go'                  " Adds golang support, :GoBuild, :GoInstall, :GoTest, syntax highlight etc...
+Plug 'hashivim/vim-terraform'        " Terraform HCL and JSON syntax highlighting for *.tf, *.tfvars, *.tfstate files
+Plug 'leafgarland/typescript-vim'    " Typescript syntax
+Plug 'nvie/vim-flake8'               " Python syntax checker, F7 to run on .py file
+Plug 'peitalin/vim-jsx-typescript'   " JSX-in-typescript syntax
+Plug 'racer-rust/vim-racer'          " Rust go to definition
+Plug 'rust-lang/rust.vim'            " Rust syntax highlighting, formatting
+Plug 'slim-template/vim-slim'        " RoR syntax and tooling
+Plug 'tpope/vim-rails'               " RoR syntax and tooling
+Plug 'vim-ruby/vim-ruby'             " RoR syntax and tooling
+Plug 'vim-scripts/indentpython.vim'  " Improves auto-indent
 
-" Ack search tool for vim
-Plug 'mileszs/ack.vim'
+" autocomplete
+" Plug 'codota/tabnine-vim'          " TabNine code autocompleter
+Plug 'github/copilot.vim'            " gh copilot
 
-" Keep Plug commands between vundle#begin/end.
-" plugin on GitHub repo
-Plug 'scrooloose/nerdtree'
+" tools
+Plug 'dhruvasagar/vim-table-mode'    " Markdown tables
+Plug 'junegunn/fzf'                  " Fuzzy finder
+Plug 'junegunn/fzf.vim'              " Fuzzy finder
+Plug 'mileszs/ack.vim'               " Ack search tool for vim
+Plug 'scrooloose/nerdtree'           " File tree
+Plug 'tpope/vim-abolish'             " Vim abolish for coercing between snake and camel case
+Plug 'tpope/vim-fugitive'            " Git wrapper inside vim
+Plug 'tpope/vim-repeat'              " Vim repeat for tpope's plugins
+Plug 'tpope/vim-rhubarb'             " Enables :GBrowse redirect to Github in fugitive
 
-" Fuzzy finder
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+" misc
+Plug 'morhetz/gruvbox'               " Colorscheme
+Plug 'ryanoasis/vim-devicons'        " Icons for filetype indicators in nerdtree
 
-" Autocomplete for python
-" Add --go-compiler to install.py in ~/.vim/bundle/YouCompleteMe to add go
-" support
-Plug 'fatih/vim-go' " Adds golang support, :GoBuild, :GoInstall, :GoTest, syntax highlight etc...
-Plug 'nvie/vim-flake8' " Python syntax checker, F7 to run on .py file
-
-" Vim abolish for coercing between snake and camel case
-Plug 'tpope/vim-abolish'
-
-" Git wrapper inside vim
-Plug 'tpope/vim-fugitive'
-
-" Enables :GBrowse redirect to Github in fugitive
-Plug 'tpope/vim-rhubarb'
-
-" Vim repeat for tpope's plugins
-Plug 'tpope/vim-repeat'
-
-" TabNine code autocompleter
-" Plug 'codota/tabnine-vim'
-
- " Improves auto-indent
-Plug 'vim-scripts/indentpython.vim'
-
-" Syntax checking
-Plug 'dense-analysis/ale'
-
-" Markdown tables
-Plug 'dhruvasagar/vim-table-mode'
-
-" Rust syntax highlighting, formatting
-Plug 'rust-lang/rust.vim'
-
-" Rust go to definition
-Plug 'racer-rust/vim-racer'
-
-" Toml syntax support
-Plug 'cespare/vim-toml'
-
-" Terraform HCL and JSON syntax highlighting for *.tf, *.tfvars, *.tfstate
-" files
-Plug 'hashivim/vim-terraform'
-
-" Typescript syntax
-Plug 'leafgarland/typescript-vim'
-
-" JSX-in-typescript syntax
-Plug 'peitalin/vim-jsx-typescript'
-
-" Elixir syntax
-Plug 'elixir-editors/vim-elixir'
-
-" RoR syntax and tooling
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'slim-template/vim-slim'
-
-" Icons for filetype indicators in nerdtree
-Plug 'ryanoasis/vim-devicons'
-
-" Colorscheme
-Plug 'morhetz/gruvbox'
-
-" copilot
-Plug 'github/copilot.vim'
-
-" All of your Plugs must be added before the following line
-call plug#end()
+call plug#end() " All of your Plugs must be added before the following line
 
 " Set space as leader key
 let mapleader=" "
