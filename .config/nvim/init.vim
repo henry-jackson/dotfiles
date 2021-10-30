@@ -138,6 +138,7 @@ let g:ycm_rust_src_path = '/home/henryjackson/.rustup/toolchains/stable-x86_64-u
 " Turn on syntax highlighting
 syntax on
 colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
 
 " Security
 set modelines=0
@@ -167,6 +168,9 @@ autocmd FileType ruby setlocal sw=2
 
 " typescript, javascript specific whitespace
 autocmd BufRead,BufNewFile *.ts,*.tsx*,*.js,*.jsx,*.jbuilder setlocal ts=2 sw=2
+
+" scroll within a vim buffer
+set mouse=a
 
 " Cursor motion
 set scrolloff=3
