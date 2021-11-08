@@ -5,3 +5,4 @@
 /plugin
 view/*
 .vim/bundle/*
+Brewfile.lock.json

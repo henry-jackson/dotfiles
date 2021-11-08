@@ -111,8 +111,9 @@ let g:terraform_fmt_on_save=1
 let g:ycm_add_preview_to_completeopt = 0                                       " YCM Config
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_rust_src_path =                                                      " rust source path for auto completion
-    \ '/home/henryjackson/.rustup/toolchains/stable-x86_64-unknown-linux-gnu'
+" TODO figure out why multi-line throws error on editor startup
+" let g:ycm_rust_src_path =                                                    " rust source path for auto completion
+    " \ '/home/henryjackson/.rustup/toolchains/stable-x86_64-unknown-linux-gnu'
 let mapleader=' '                                                              " Set space as leader key
 
 " TODO: organize below
