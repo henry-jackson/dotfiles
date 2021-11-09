@@ -208,9 +208,10 @@ au FileType rust nmap gd <Plug>(rust-def)
 " remember folding on save
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
+  au BufWinLeave ?*.* mkview 1
+  au BufWinEnter ?*.* silent! loadview 1
 augroup END
+
 
 " format plush files (Buffalo)
 autocmd BufRead,BufNewFile *.plush.html set filetype=eruby.html.js.css
