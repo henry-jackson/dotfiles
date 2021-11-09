@@ -13,6 +13,7 @@ mkdir -p ~/.config/nvim
 ln -s ~/.dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/.gitconfig-spotify ~/.gitconfig-spotify
 # Install vim-plug plugins
 nvim +PlugInstall
 # Change default login shell to zshell
