@@ -10,7 +10,9 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # make config directory
 mkdir -p ~/.config/nvim
 # set up symlinks
+# TODO: track and symlink entire .config dir
 ln -s ~/.dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
+ln -s ~/.dotfiles/.config/tmuxinator/cms.yml ~/.config/tmuxinator/cms.yml
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/.gitconfig-spotify ~/.gitconfig-spotify
