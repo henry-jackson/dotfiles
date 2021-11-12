@@ -48,7 +48,7 @@ set backspace=indent,eol,start
 set expandtab
 set foldlevel=99
 set foldmethod=indent
-set formatoptions=tcqrn1
+set formatoptions=tcqn1
 set hidden                      " Allow hidden buffers
 set hlsearch
 set ignorecase
