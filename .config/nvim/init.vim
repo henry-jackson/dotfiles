@@ -43,38 +43,37 @@ call plug#end() " All of your Plugs must be added before the following line
 syntax on " Turn on syntax highlighting
 colorscheme gruvbox
 
-" sets
-set backspace=indent,eol,start
-set expandtab
-set foldlevel=99
-set foldmethod=indent
-set formatoptions=tcqn1
-set hidden                      " Allow hidden buffers
-set hlsearch
-set ignorecase
-set incsearch
+" sets (options)
+set backspace=indent,eol,start  " allow backspacing over autoindent, eol, start of insert
+set expandtab                   " expand tabs to spaces
+set foldlevel=99                " close fewer folds
+set foldmethod=indent           " lines with equal indent form a fold
+set formatoptions=tcqn1         " autoformatting http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
+set hidden                      " allow hidden buffers
+set hlsearch                    " highlight previous search matches
+set ignorecase                  " case insensitive searching
+set incsearch                   " highlight search matches as you type
 set laststatus=2                " Status bar
-set listchars=tab:▸\ ,eol:¬     " Visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬     " visualize tabs and newlines
 set matchpairs+=<:>             " use % to jump between pairs
-set modelines=0                 " Security
+set modelines=0                 " security
 set mouse=a                     " scroll within a vim buffer
-set noshiftround
-set number                      " Show line numbers
+set noshiftround                " round indent to multiple of 'shiftwidth'
+set number                      " show line numbers
 set number relativenumber       " set hybrid line numbers
-set ruler                       " Show file stats
-set scrolloff=3                 " Cursor motion
-set shiftwidth=4
-set showcmd                     " Last line
-set showmatch
-set showmode                    " Last line
-set smartcase
-set softtabstop=0 noexpandtab
-set tabstop=4
-set textwidth=79
-set visualbell                  " Blink cursor on error instead of beeping
+set ruler                       " show file stats
+set scrolloff=3                 " cursor motion
+set shiftwidth=4                " number of spaces to use for each step of (auto)indent
+set showcmd                     " last line
+set showmatch                   " when a bracket is inserted, briefly jump to the matching one
+set showmode                    " last line
+set smartcase                   " if search contains capital letters, use case-sensitivity
+set tabstop=4                   " number of spaces that a tab in the file counts for
+set textwidth=79                " wrap lines at first whitespace after 79 chars
+set visualbell                  " blink cursor on error instead of beeping
 set wildmenu                    " set up tab completion menus
 set wildmode=longest,list,full  " set up tab completion menus
-set wrap
+set wrap                        " wrap lines longer than the width of the window
 
 " lets
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\~$']                                  "ignore files in NERDTree
