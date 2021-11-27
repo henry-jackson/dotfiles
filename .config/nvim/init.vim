@@ -18,6 +18,7 @@ Plug 'slim-template/vim-slim'        " RoR syntax and tooling
 Plug 'tpope/vim-rails'               " RoR syntax and tooling
 Plug 'vim-ruby/vim-ruby'             " RoR syntax and tooling
 Plug 'vim-scripts/indentpython.vim'  " Improves auto-indent
+Plug 'evanleck/vim-svelte'           " Svelte syntax highlighting
 
 " autocomplete
 " Plug 'codota/tabnine-vim'          " TabNine code autocompleter
@@ -91,19 +92,28 @@ let g:ale_fixers = {
     \ 'markdown': ['prettier'],
 	\ 'python': ['autopep8'],
     \ 'ruby': ['rubocop'],
+    \ 'svelte': ['prettier', 'eslint'],
     \ 'typescriptreact': ['prettier', 'eslint']
 \}
-let g:ale_linter_aliases = {'typescriptreact': ['typescript']}                 " Ale configs
+let g:ale_linter_aliases = {
+    \ 'svelte': ['css', 'javascript'],
+    \ 'typescriptreact': ['typescript']
+\}
 let g:ale_linters = {
 	\ 'java': ['checkstyle'],
+    \ 'svelte': ['eslint', 'tsserver'],
     \ 'typescript': ['prettier', 'tsserver', 'eslint']
 \}
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 'never'
 let g:go_fmt_autosave = 1                                                      " Run go fmt on save
 let g:go_fmt_command = 'goimports'                                             " Add go imports when saving go files
 let g:go_fmt_experimental = 1                                                  " Don't unfold go code on write
 let g:gruvbox_contrast_dark = 'hard'
 let g:rust_clip_command = 'xclip -selection clipboard'                         " Copy RustPlay output URL to clipboard
 let g:rustfmt_autosave = 1                                                     " Run rustfmt on save
+let g:svelte_preprocessors = ['typescript']                                    " Svelte preprocessors
 let g:table_mode_corner='|'                                                    " vim table-mode use markdown style tables
 let g:terraform_align=1                                                        " vim-terraform tab alignment settings
 let g:terraform_fmt_on_save=1
