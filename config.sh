@@ -16,6 +16,7 @@ ln -s ~/.dotfiles/.config/tmuxinator/cms.yml ~/.config/tmuxinator/cms.yml
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/.gitconfig-spotify ~/.gitconfig-spotify
+ln -s ~/.dotfiles/.sqliterc ~/.sqliterc
 # Install vim-plug plugins
 nvim +PlugInstall
 # Change default login shell to zshell
