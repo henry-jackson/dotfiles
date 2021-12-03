@@ -186,6 +186,9 @@ map <C-s> :Ag<Enter>
 " Enable folding with space f
 nmap <silent> <leader>f za
 
+" Run go file
+nmap <silent> <leader>gr :GoRun
+
 " Enable FZF search with file preview using CTRL+f, ignoring files that are in
 " .gitignore, but including untracked files in the repo
 map <C-f> :GFiles --exclude-standard --others --cached<Enter>
