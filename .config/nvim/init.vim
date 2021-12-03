@@ -187,7 +187,7 @@ map <C-s> :Ag<Enter>
 nmap <silent> <leader>f za
 
 " Run go file
-nmap <silent> <leader>gr :GoRun
+nmap <silent> <leader>gr :GoRun<Enter>
 
 " Enable FZF search with file preview using CTRL+f, ignoring files that are in
 " .gitignore, but including untracked files in the repo
